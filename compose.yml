@@ -2,50 +2,48 @@
 services:
   db:
     build: ./database
-    deploy:
-      replicas: 3
     ports:
       - "3306:3306"
     networks:
       - mynetwork
+    deploy:
+      replicas: 2
 
   auth_service:
     build: ./auth
-    deploy:
-      replicas: 3
     ports:
       - "5001:5001"
     networks:
       - mynetwork
     depends_on:
       - db
+    deploy:
+      replicas: 2
 
   book_service:
     build: ./book
-    deploy:
-      replicas: 3
     ports:
       - "5002:5002"
     networks:
       - mynetwork
     depends_on:
       - db
+    deploy:
+      replicas: 2
 
   borrow_service:
     build: ./borrow
-    deploy:
-      replicas: 3
     ports:
       - "5003:5003"
     networks:
       - mynetwork
     depends_on:
       - db
+    deploy:
+      replicas: 2
 
   frontend:
     build: .
-    deploy:
-      replicas: 3
     ports:
       - "5000:5000"
     networks:
@@ -54,6 +52,8 @@ services:
       - auth_service
       - book_service
       - borrow_service
+    deploy:
+      replicas: 2
 
 networks:
   mynetwork:

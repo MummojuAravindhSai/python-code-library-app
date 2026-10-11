@@ -8,14 +8,6 @@ services:
       - mydata:/var/lib/mysql/
     networks:
       - myapp
-    deploy:
-      resources:
-        reservations:
-          cpus: "0.125"
-          memory: 100M
-        limits:
-          cpus: "0.5"
-          memory: 200M
 
   auth_service:
     image: aravindhsaimummoju/flm-python_app_deploy:auth
@@ -23,14 +15,6 @@ services:
       - "5001:5001"
     networks:
       - myapp
-    deploy:
-      resources:
-        reservations:
-          cpus: "0.125"
-          memory: 100M
-        limits:
-          cpus: "0.5"
-          memory: 200M
 
   book_service:
     image: aravindhsaimummoju/flm-python_app_deploy:book
@@ -38,14 +22,6 @@ services:
       - "5002:5002"
     networks:
       - myapp
-    deploy:
-      resources:
-        reservations:
-          cpus: "0.125"
-          memory: 100M
-        limits:
-          cpus: "0.5"
-          memory: 200M
 
   borrow_service:
     image: aravindhsaimummoju/flm-python_app_deploy:borrow
@@ -53,14 +29,6 @@ services:
       - "5003:5003"
     networks:
       - myapp
-    deploy:
-      resources:
-        reservations:
-          cpus: "0.125"
-          memory: 100M
-        limits:
-          cpus: "0.5"
-          memory: 200M
 
   frontend_service:
     image: aravindhsaimummoju/flm-python_app_deploy:frontend
@@ -68,14 +36,6 @@ services:
       - "5000:5000"
     networks:
       - myapp
-    deploy:
-      resources:
-        reservations:
-          cpus: "0.125"
-          memory: 100M
-        limits:
-          cpus: "0.5"
-          memory: 200M
 
 networks:
   myapp:

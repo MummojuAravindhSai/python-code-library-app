@@ -1,4 +1,4 @@
-```yaml
+---
 services:
   db:
     image: aravindhsaimummoju/flm-python_app_deploy:db

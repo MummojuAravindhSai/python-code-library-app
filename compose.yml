@@ -84,7 +84,7 @@ services:
 
 networks:
   myapp:
-    driver: bridge
+    driver: overlay
 
 volumes:
   mydata:

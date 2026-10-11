@@ -1,18 +1,18 @@
 ---
 services:
   db:
-    image: aravindhsaimummoju/flm-python_app_deploy:db
+    build: ./database
     deploy:
-      replicas: 2
+      replicas: 3
     ports:
       - "3306:3306"
     networks:
       - mynetwork
 
   auth_service:
-    image: aravindhsaimummoju/flm-python_app_deploy:auth
+    build: ./auth
     deploy:
-      replicas: 2
+      replicas: 3
     ports:
       - "5001:5001"
     networks:
@@ -21,9 +21,9 @@ services:
       - db
 
   book_service:
-    image: aravindhsaimummoju/flm-python_app_deploy:book
+    build: ./book
     deploy:
-      replicas: 2
+      replicas: 3
     ports:
       - "5002:5002"
     networks:
@@ -32,9 +32,9 @@ services:
       - db
 
   borrow_service:
-    image: aravindhsaimummoju/flm-python_app_deploy:borrow
+    build: ./borrow
     deploy:
-      replicas: 2
+      replicas: 3
     ports:
       - "5003:5003"
     networks:
@@ -43,9 +43,9 @@ services:
       - db
 
   frontend:
-    image: aravindhsaimummoju/flm-python_app_deploy:frontend
+    build: .
     deploy:
-      replicas: 2
+      replicas: 3
     ports:
       - "5000:5000"
     networks:
